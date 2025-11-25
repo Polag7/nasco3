@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASCO - Food-Grade Industrial Cleaning & Hygiene Chemicals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #0056b3;
+            --secondary: #00a8e8;
+            --accent: #ff6b00;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: #e55a00;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 1rem auto;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-item {
+            margin-left: 2rem;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 168, 232, 0.8)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 10rem 0 5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text h2 {
+            color: var(--primary);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Products Section */
+        .products {
+            background-color: #f1f7fd;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 200px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .product-description {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .product-actions .btn {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Product Categories */
+        .product-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-btn {
+            padding: 0.5rem 1.5rem;
+            background-color: white;
+            border: 2px solid var(--primary);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Certifications Section */
+        .certifications {
+            text-align: center;
+        }
+
+        .cert-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cert-logo {
+            width: 120px;
+            height: 120px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 40px 20px;
+            font-family: Arial, sans-serif;
+            border-top: 3px solid #d4af37;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-column h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #cccccc;
+        }
+
+        .footer-column h4 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .trusted-text {
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            color: #cccccc;
+        }
+
+        .footer-contact strong {
+            color: #ffffff;
+        }
+
+        .footer-locations p {
+            line-height: 1.6;
+            color: #cccccc;
+        }
+
+        .footer-locations strong {
+            color: #ffffff;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #999999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                box-shadow: var(--shadow);
+                transition: var(--transition);
+                padding: 2rem 0;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                margin: 1rem 0;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .hero {
+                padding: 8rem 0 3rem;
+            }
+            
+            .cert-logos {
+                gap: 1rem;
+            }
+            
+            .cert-logo {
+                width: 100px;
+                height: 100px;
+                font-size: 0.9rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-industry"></i>
+                NASCO
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#products" class="nav-link">Products</a></li>
+                <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Food-Grade Industrial Cleaning & Hygiene Solutions</h1>
+            <p>NASCO provides premium quality, food-safe cleaning chemicals for industrial facilities. Our products meet the highest standards of safety and effectiveness.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn">Our Products</a>
+                <a href="#footer-contact" class="btn btn-accent">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About NASCO</h2>
+            <div class="about-content">
+                <div class="about-image">
+                  
+                      
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h2>Leading Provider of Industrial Hygiene Solutions</h2>
+                    <p>NASCO has been at the forefront of industrial cleaning and hygiene solutions for over two decades. Our specialized food-grade chemicals are designed to meet the rigorous demands of food processing facilities, restaurants, and industrial kitchens.</p>
+                    <p>All our products are manufactured in compliance with international safety standards and are certified for use in food processing environments.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Food Safe</h3>
+                            <p>Certified safe for food contact surfaces</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Eco-Friendly</h3>
+                            <p>Biodegradable and environmentally responsible</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-flask"></i>
+                            <h3>Advanced Formula</h3>
+                            <p>State-of-the-art chemical formulations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            
+            <div class="product-categories">
+                <button class="category-btn active" data-category="all">All Products</button>
+                <button class="category-btn" data-category="cleaning">Cleaning Solutions</button>
+                <button class="category-btn" data-category="disinfectant">Disinfectants</button>
+                <button class="category-btn" data-category="car">Car Care</button>
+                <button class="category-btn" data-category="specialty">Specialty Products</button>
+            </div>
+            
+            <div class="products-grid" id="products-container">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section certifications">
+        <div class="container">
+            <h2 class="section-title">Our Certifications</h2>
+            <p>NASCO products meet the highest international standards for safety and quality in food-grade industrial cleaning.</p>
+            
+            <div class="cert-logos">
+                <div class="cert-logo">HALAL Certified</div>
+                <div class="cert-logo">ISO 9001</div>
+                <div class="cert-logo">FDA Approved</div>
+                <div class="cert-logo">Food Safe</div>
+                <div class="cert-logo">Eco-Friendly</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with contact section -->
+    <footer id="footer-contact">
+        <div class="container">
+            <div class="footer-container">
+                <!-- Column 1: Brand Info -->
+                <div class="footer-column">
+                    <h3>Certified Quality</h3>
+                    <p>Providing HALAL Certified and FOOD-grade Industrial CLEANING & HYGIENE Chemicals for Industrial Hygiene and Food Safety.</p>
+                    <p class="trusted-text">Trusted Since 2006</p>
+                </div>
+
+                <!-- Column 2: Contact Info -->
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <span style="font-weight: bold; margin-right: 8px; color: #ffffff;">Email:</span> Nsco.pk@gmail.com
+                        </p>
+                        <p>
+                            <strong>We're Open</strong><br>
+                            Our store has opened for shopping, exchanges, and bulk inquiry 24/7.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Column 3: Locations -->
+                <div class="footer-column footer-locations">
+                    <h4>Locations</h4>
+                    <p>
+                        We are available in:<br>
+                        <strong>Pakistan:</strong> Lahore | Faisalabad | Mutlan | Rawalpindi-Hassanabdal | Peshawar | Karachi<br>
+                        <strong>International:</strong> UAE | Sweden | UK
+                    </p>
+                </div>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="copyright">
+                Copyright © 2025 NASCO. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                name: "Nasco A-42 UltraSonic Cleaning Liquid",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-a-42-ultrasonic-cleaning-liquid-500ml-10litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-500Ml_923b90b7-23c0-424f-ae83-908db9fa54cd.png?v=1756899137&width=360",
+                category: "cleaning"
+            },
+            {
+                id: 2,
+                name: "Nasco A-420 Alkaline Cleaner - Non-Foaming Alkaline CIP Cleaner",
+                quantity: "1Litre-20Litre",
+                link: "https://nscohygiene.com/products/nasco-a-420-alkaline-cleaner-non-foaming-alkaline-cip-cleaner-1litre-20litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre.png?v=1757751068&width=360",
+                category: "cleaning"
+            },
+            {
+                id: 3,
+                name: "Nasco Acid-O-Clean - Non-Foaming Acidic CIP Cleaner",
+                quantity: "1Litre-10Litre",
+                link: "https://nscohygiene.com/products/nasco-acid-o-clean-non-foaming-acidic-cip-cleaner-1litre-10litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup_94916aec-d481-4869-998b-35c0361efef7.png?v=1757756622&width=360",
+                category: "cleaning"
+            },
+            {
+                id: 4,
+                name: "Nasco AERO-GEL – Gel Air Freshener",
+                quantity: "1 Litre",
+                link: "https://nscohygiene.com/products/nasco-aero-gel-gel-air-freshener-1-litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_49b0da57-f4cd-4890-8a2b-9fffc7f5634f.png?v=1758038515&width=360",
+                category: "specialty"
+            },
+            {
+                id: 5,
+                name: "Nasco All in One Monthly Budget Bundle",
+                quantity: "Pack of 6",
+                link: "https://nscohygiene.com/products/nasco-all-in-one-monthly-budget-bundle-pack-of-5",
+                image: "https://nscohygiene.com/cdn/shop/files/Bundle-with-phenyl.jpg?v=1752484948&width=360",
+                category: "specialty"
+            },
+            {
+                id: 6,
+                name: "Nasco All Purpose Car Cleaner & Disinfectant Spray",
+                quantity: "1Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-all-purpose-car-cleaner-disinfectant-spray-1litre-30litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_da6e2c0e-a772-42f8-a7fe-4cc466de7dc9.png?v=1758027743&width=360",
+                category: "car"
+            },
+            {
+                id: 7,
+                name: "Nasco All Purpose Car Cleaner Spray",
+                quantity: "1Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-all-purpose-car-cleaner-spray-1litre-30litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_6fef688f-d085-4666-a176-e6d225511d2f.png?v=1758026198&width=360",
+                category: "car"
+            },
+            {
+                id: 8,
+                name: "Nasco All Purpose Interior Cleaning & Disinfectant Gel",
+                quantity: "1Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-all-purpose-interior-cleaning-disinfectant-gel-1litre-30litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_79a3ef74-c699-4dfd-82eb-2e30a3167943.png?v=1758033029&width=360",
+                category: "car"
+            },
+            {
+                id: 9,
+                name: "Nasco Antibacterial Foaming Hand Soap with Pump Dispenser",
+                quantity: "Highly Concentrated - 500ml Makes 5 litre of Hand Soap",
+                link: "https://nscohygiene.com/products/nasco-antibacterial-foaming-hand-soap-with-pump-dispenser-4",
+                image: "https://nscohygiene.com/cdn/shop/files/Apple-New.png?v=1752400904&width=360",
+                category: "disinfectant"
+            },
+            {
+                id: 10,
+                name: "Nasco Black Garbage Liner Bags for Dustbins – 5 Sizes",
+                quantity: "Heavy-Duty | 1 KG Pack",
+                link: "https://nscohygiene.com/products/nasco-black-garbage-liner-bags-for-dustbins-5-sizes-heavy-duty-1-kg-pack",
+                image: "https://nscohygiene.com/cdn/shop/files/Apple_3de1556a-cd39-48c1-9eea-1d46afb848e9.png?v=1752154286&width=360",
+                category: "specialty"
+            },
+            // Add more products here following the same pattern
+            // I'll add a few more to demonstrate
+            {
+                id: 51,
+                name: "Nasco Lustrex Stainless Steel Rust Cleaner and Shiner",
+                quantity: "500Ml-5Litre",
+                link: "https://nscohygiene.com/products/nasco-lustrex-stainless-steel-rust-cleaner-and-shiner-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockups_a9360820-c640-4f1e-88d5-b530d18d6435.png?v=1755438434&width=360",
+                category: "cleaning"
+            },
+            {
+                id: 52,
+                name: "Nasco Marmitax Dish Washing Liquid Detergent for Pots and Pans",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-marmitax-dish-washing-liquid-detergent-for-pots-and-pans-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Dish-Wash-New_4d2661e9-2a09-40be-a772-e79b3bd88e95.png?v=1755439361&width=360",
+                category: "cleaning"
+            },
+            {
+                id: 66,
+                name: "Nasco Sanifect Bathroom Cleaner",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-sanifect-bathroom-cleaner-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Final.png?v=1755501420&width=360",
+                category: "disinfectant"
+            },
+            {
+                id: 68,
+                name: "Nasco Sanigel 80% Alcohol Hand Sanitiser",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-sanigel-80-alcohol-hand-sanitiser-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockups_39a794d2-6dff-43d7-84e1-406c99db01d0.png?v=1755502593&width=360",
+                category: "disinfectant"
+            },
+            {
+                id: 80,
+                name: "Nasco Windeze Glass & Multi-Surface Cleaner",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/windeze-glass-multi-surface-cleaner-highly-concentrated-liquid",
+                image: "https://nscohygiene.com/cdn/shop/files/New-Mockup_0a36c11d-e41f-4f39-a187-6389cc6bd7fc.png?v=1755504822&width=360",
+                category: "cleaning"
+            },
+            {
+                id: 81,
+                name: "Nasco Wood Glow Premium Wood Polish Spray",
+                quantity: "500Ml-5Litre",
+                link: "https://nscohygiene.com/products/nasco-wood-glow-premium-wood-polish-spray-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockups_e4080b5d-ee56-4c63-b753-30d790e451bf.png?v=1755503784&width=360",
+                category: "specialty"
+            }
+        ];
+
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '0.5rem 0';
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '1rem 0';
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Product Filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const productsContainer = document.getElementById('products-container');
+        
+        function displayProducts(category = 'all') {
+            productsContainer.innerHTML = '';
+            
+            const filteredProducts = category === 'all' 
+                ? products 
+                : products.filter(product => product.category === category);
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.quantity}</p>
+                        <div class="product-actions">
+                            <a href="${product.link}" class="btn" target="_blank">View Product</a>
+                            <a href="https://wa.me/+923321444065" class="btn btn-accent">Inquire</a>
+                        </div>
+                    </div>
+                `;
+                productsContainer.appendChild(productCard);
+            });
+        }
+        
+        // Initialize with all products
+        displayProducts();
+        
+        // Add event listeners to category buttons
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                // Filter products
+                displayProducts(btn.dataset.category);
+            });
+        });
+    </script>
+</body>
+</html>
