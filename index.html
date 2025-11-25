@@ -226,6 +226,13 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow);
+            height: 400px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .about-text h2 {
@@ -285,18 +292,19 @@
         }
 
         .product-image {
-            height: 200px;
-            background-color: #e9ecef;
+            height: 250px;
+            background-color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            padding: 1rem;
         }
 
         .product-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .product-content {
@@ -308,7 +316,7 @@
 
         .product-title {
             color: var(--primary);
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-bottom: 0.5rem;
             line-height: 1.3;
         }
@@ -318,12 +326,7 @@
             font-size: 0.9rem;
             margin-bottom: 1rem;
             flex-grow: 1;
-        }
-
-        .product-price {
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 1rem;
+            font-weight: 500;
         }
 
         .product-actions {
@@ -343,24 +346,28 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
         }
 
         .category-btn {
-            padding: 0.5rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             background-color: white;
             border: 2px solid var(--primary);
             border-radius: 25px;
             cursor: pointer;
             transition: var(--transition);
             font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary);
         }
 
         .category-btn.active,
         .category-btn:hover {
             background-color: var(--primary);
             color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
         }
 
         /* Certifications Section */
@@ -391,72 +398,128 @@
 
         /* Footer */
         footer {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 40px 20px;
-            font-family: Arial, sans-serif;
-            border-top: 3px solid #d4af37;
+            background-color: #0f172a; /* Dark Navy Background */
+            color: #94a3b8; /* Slate Text Color */
+            padding: 60px 20px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-top: none;
+            position: relative;
         }
 
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
-        .footer-column h3 {
-            color: #d4af37;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
+        .footer-column h3, .footer-column h4 {
+            color: #10b981; /* Teal/Green Accent */
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-column h3 i, .footer-column h4 i {
+            font-size: 1.4rem;
         }
 
         .footer-column p {
             line-height: 1.6;
             margin-bottom: 15px;
             font-size: 0.95rem;
-            color: #cccccc;
+            color: #94a3b8;
         }
-
-        .footer-column h4 {
-            color: #d4af37;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+        
+        .footer-column strong {
+            color: #ffffff;
         }
 
         .trusted-text {
             font-weight: bold;
-            color: #d4af37;
+            color: #ffffff;
+            margin-top: 10px;
+            display: block;
         }
 
-        .footer-contact p {
-            margin-bottom: 10px;
+        .footer-contact-item {
             display: flex;
             align-items: center;
-            color: #cccccc;
-        }
-
-        .footer-contact strong {
+            gap: 10px;
+            margin-top: 15px;
             color: #ffffff;
+            font-weight: 500;
+        }
+        
+        .footer-contact-item i {
+            font-size: 1.2rem;
         }
 
-        .footer-locations p {
-            line-height: 1.6;
-            color: #cccccc;
+        .location-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            color: #94a3b8;
         }
 
-        .footer-locations strong {
-            color: #ffffff;
+        .footer-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .footer-tag {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            color: #cbd5e1;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-tag:hover {
+            border-color: #10b981;
+            color: #10b981;
         }
 
         .copyright {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 60px;
             padding-top: 20px;
-            border-top: 1px solid #333;
+            border-top: 1px solid #1e293b;
             font-size: 0.9rem;
-            color: #999999;
+            color: #64748b;
+        }
+
+        /* Floating Chat Button */
+        .floating-chat-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+        }
+
+        .floating-chat-btn:hover {
+            transform: scale(1.1);
         }
 
         /* Responsive Design */
@@ -508,6 +571,10 @@
             .hero p {
                 font-size: 1rem;
             }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 576px) {
@@ -531,6 +598,11 @@
             
             .products-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .category-btn {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
@@ -572,10 +644,7 @@
         <div class="container">
             <h2 class="section-title">About NASCO</h2>
             <div class="about-content">
-                <div class="about-image">
-                  
-                      
-                    </div>
+
                 </div>
                 <div class="about-text">
                     <h2>Leading Provider of Industrial Hygiene Solutions</h2>
@@ -610,11 +679,20 @@
             <h2 class="section-title">Our Products</h2>
             
             <div class="product-categories">
-                <button class="category-btn active" data-category="all">All Products</button>
-                <button class="category-btn" data-category="cleaning">Cleaning Solutions</button>
-                <button class="category-btn" data-category="disinfectant">Disinfectants</button>
+                <!-- <button class="category-btn active" data-category="all">All</button> -->
+                <button class="category-btn active" data-category="food">Food</button>
+                <button class="category-btn" data-category="beverage">Beverages</button>
+                <button class="category-btn" data-category="pharma">Pharmaceuticals</button>
+                <button class="category-btn" data-category="meat">Meat & Slaughter House</button>
+                <button class="category-btn" data-category="dairy">Dairy</button>
+                <button class="category-btn" data-category="sweets">Confectionery, Bakery & Sweets</button>
                 <button class="category-btn" data-category="car">Car Care</button>
-                <button class="category-btn" data-category="specialty">Specialty Products</button>
+                <button class="category-btn" data-category="rice">Rice & Flour</button>
+                <button class="category-btn" data-category="seafood">Sea Food & Fisheries</button>
+                <button class="category-btn" data-category="hospital">Hospitals & Health Care</button>
+                <button class="category-btn" data-category="hotel">Hotel, Restaurants, Fast Food & Hospitality Sector</button>
+                <button class="category-btn" data-category="commercial">Commercial Buildings, Schools, Universities & Janitorial Contractors</button>
+                <button class="category-btn" data-category="biosecurity">Biosecurity of Poultry & Dairy Farms</button>
             </div>
             
             <div class="products-grid" id="products-container">
@@ -643,35 +721,44 @@
     <footer id="footer-contact">
         <div class="container">
             <div class="footer-container">
-                <!-- Column 1: Brand Info -->
+                <!-- Column 1: Certified Quality -->
                 <div class="footer-column">
-                    <h3>Certified Quality</h3>
+                    <h3><i class="fas fa-shield-alt"></i> Certified Quality</h3>
                     <p>Providing HALAL Certified and FOOD-grade Industrial CLEANING & HYGIENE Chemicals for Industrial Hygiene and Food Safety.</p>
-                    <p class="trusted-text">Trusted Since 2006</p>
+                    <span class="trusted-text">Trusted Since 2006</span>
                 </div>
 
-                <!-- Column 2: Contact Info -->
+                <!-- Column 2: Contact Us -->
                 <div class="footer-column">
                     <h4>Contact Us</h4>
-                    <div class="footer-contact">
-                        <p>
-                            <span style="font-weight: bold; margin-right: 8px; color: #ffffff;">Email:</span> Nsco.pk@gmail.com
-                        </p>
-                        <p>
-                            <strong>We're Open</strong><br>
-                            Our store has opened for shopping, exchanges, and bulk inquiry 24/7.
-                        </p>
+                    <p>
+                        <strong>We're Open</strong><br>
+                        Our store has opened for shopping, exchanges, and bulk inquiry 24/7.
+                    </p>
+                    <div class="footer-contact-item">
+                        <i class="far fa-envelope"></i>
+                        <span>Nsco.pk@gmail.com</span>
                     </div>
                 </div>
 
                 <!-- Column 3: Locations -->
                 <div class="footer-column footer-locations">
                     <h4>Locations</h4>
-                    <p>
-                        We are available in:<br>
-                        <strong>Pakistan:</strong> Lahore | Faisalabad | Mutlan | Rawalpindi-Hassanabdal | Peshawar | Karachi<br>
-                        <strong>International:</strong> UAE | Sweden | UK
-                    </p>
+                    <div class="location-header">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>We are available in:</span>
+                    </div>
+                    <div class="footer-tags">
+                        <span class="footer-tag">Lahore</span>
+                        <span class="footer-tag">Faisalabad</span>
+                        <span class="footer-tag">Multan</span>
+                        <span class="footer-tag">Rawalpindi-Islamabad</span>
+                        <span class="footer-tag">Peshawar</span>
+                        <span class="footer-tag">Karachi</span>
+                        <span class="footer-tag">UAE</span>
+                        <span class="footer-tag">Sweden</span>
+                        <span class="footer-tag">UK</span>
+                    </div>
                 </div>
             </div>
 
@@ -682,138 +769,292 @@
         </div>
     </footer>
 
+    <!-- Floating Chat Button -->
+    <a href="https://wa.me/+923321444065" class="floating-chat-btn" target="_blank" aria-label="Chat with us">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script>
-        // Product Data
+        // Specific Images based on existing site data or placeholders
+        const IMG_ACID_O_CLEAN = "https://nscohygiene.com/cdn/shop/files/Mockup_94916aec-d481-4869-998b-35c0361efef7.png?v=1757756622&width=533";
+        const IMG_A420 = "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre.png?v=1757751068&width=533";
+        const IMG_GENERAL = "https://placehold.co/400x400/e9ecef/0056b3?text=NASCO+Product";
+        const IMG_CAR = "https://placehold.co/400x400/e9ecef/ff6b00?text=NASCO+Car+Care";
+
+        // Master Product List with Categories
         const products = [
+            // --- Food, Beverage, Pharma, Dairy, Sweets Specific ---
             {
-                id: 1,
-                name: "Nasco A-42 UltraSonic Cleaning Liquid",
+                name: "Nasco Sodium Hypochlorite – 12% Active Chlorine",
+                quantity: "5Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-sodium-hypochlorite-12-active-chlorine",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-10Litre_a4177244-928b-4cbb-bf29-5322b24adf13.png?v=1761156719&width=533",
+                categories: ["food"]
+            },
+            {
+                name: "Nasco Safon Food-safe & food-grade Liquid Hand Soap",
                 quantity: "500Ml-10Litre",
-                link: "https://nscohygiene.com/products/nasco-a-42-ultrasonic-cleaning-liquid-500ml-10litre",
-                image: "https://nscohygiene.com/cdn/shop/files/Mockup-500Ml_923b90b7-23c0-424f-ae83-908db9fa54cd.png?v=1756899137&width=360",
-                category: "cleaning"
+                link: "https://nscohygiene.com/products/nasco-safon-food-safe-food-grade-liquid-hand-soap",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-500Ml-Pump.png?v=1758536822&width=533",
+                categories: ["food", "beverage", "pharma"]
             },
             {
-                id: 2,
-                name: "Nasco A-420 Alkaline Cleaner - Non-Foaming Alkaline CIP Cleaner",
-                quantity: "1Litre-20Litre",
-                link: "https://nscohygiene.com/products/nasco-a-420-alkaline-cleaner-non-foaming-alkaline-cip-cleaner-1litre-20litre",
-                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre.png?v=1757751068&width=360",
-                category: "cleaning"
+                name: "Nasco PRO-CLEAN Chlorinated Foaming Drain Cleaner & Sanitizer",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-pro-clean-chlorinated-foaming-drain-cleaner-sanitizer-500ml-10litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup_0a8c1c82-0c5e-428e-9c3a-53813302beae.png?v=1758538721&width=533",
+                categories: ["food", "beverage", "pharma"]
             },
             {
-                id: 3,
+                name: "Nasco General Clean-DC | Cleaner - Disinfectant - Fungicide",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-general-clean-dc-cleaner-disinfectant-fungicide-10-30-litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_43de6a12-f3ab-4885-808a-660e8adb6c40.png?v=1756842381&width=533",
+                categories: ["food", "beverage", "pharma"]
+            },
+            {
+                name: "Nasco IPA 70% Surface Disinfectant",
+                quantity: "500Ml-20Litre",
+                link: "https://nscohygiene.com/products/nasco-ipa-70-surface-disinfectant-500ml-20litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup_9a122c82-114b-486c-ada3-927ce941990c.png?v=1757759040&width=533",
+                categories: ["food"]
+            },
+            {
                 name: "Nasco Acid-O-Clean - Non-Foaming Acidic CIP Cleaner",
                 quantity: "1Litre-10Litre",
                 link: "https://nscohygiene.com/products/nasco-acid-o-clean-non-foaming-acidic-cip-cleaner-1litre-10litre",
-                image: "https://nscohygiene.com/cdn/shop/files/Mockup_94916aec-d481-4869-998b-35c0361efef7.png?v=1757756622&width=360",
-                category: "cleaning"
+                image: IMG_ACID_O_CLEAN,
+                categories: ["food", "beverage", "pharma", "dairy", "sweets"]
             },
             {
-                id: 4,
-                name: "Nasco AERO-GEL – Gel Air Freshener",
-                quantity: "1 Litre",
-                link: "https://nscohygiene.com/products/nasco-aero-gel-gel-air-freshener-1-litre",
-                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_49b0da57-f4cd-4890-8a2b-9fffc7f5634f.png?v=1758038515&width=360",
-                category: "specialty"
+                name: "Nasco A-420 Alkaline Cleaner - Non-Foaming Alkaline CIP Cleaner",
+                quantity: "1Litre-20Litre",
+                link: "https://nscohygiene.com/products/nasco-a-420-alkaline-cleaner-non-foaming-alkaline-cip-cleaner-1litre-20litre",
+                image: IMG_A420,
+                categories: ["food", "beverage", "pharma", "dairy", "sweets"]
             },
             {
-                id: 5,
-                name: "Nasco All in One Monthly Budget Bundle",
-                quantity: "Pack of 6",
-                link: "https://nscohygiene.com/products/nasco-all-in-one-monthly-budget-bundle-pack-of-5",
-                image: "https://nscohygiene.com/cdn/shop/files/Bundle-with-phenyl.jpg?v=1752484948&width=360",
-                category: "specialty"
+                name: "Nasco DÉTARTREUR – Rust, Scale & Deposits Remover",
+                quantity: "1Litre-20Litre",
+                link: "https://nscohygiene.com/products/nasco-detartreur-rust-scale-deposits-remover-1litre-20litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_d77a6ba1-7f64-4483-8a84-48d618f85e1d.png?v=1764090563&width=533",
+                categories: ["sweets", "dairy", "pharma", "beverage", "food"]
             },
             {
-                id: 6,
-                name: "Nasco All Purpose Car Cleaner & Disinfectant Spray",
-                quantity: "1Litre-30Litre",
-                link: "https://nscohygiene.com/products/nasco-all-purpose-car-cleaner-disinfectant-spray-1litre-30litre",
-                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_da6e2c0e-a772-42f8-a7fe-4cc466de7dc9.png?v=1758027743&width=360",
-                category: "car"
-            },
-            {
-                id: 7,
-                name: "Nasco All Purpose Car Cleaner Spray",
-                quantity: "1Litre-30Litre",
-                link: "https://nscohygiene.com/products/nasco-all-purpose-car-cleaner-spray-1litre-30litre",
-                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_6fef688f-d085-4666-a176-e6d225511d2f.png?v=1758026198&width=360",
-                category: "car"
-            },
-            {
-                id: 8,
-                name: "Nasco All Purpose Interior Cleaning & Disinfectant Gel",
-                quantity: "1Litre-30Litre",
-                link: "https://nscohygiene.com/products/nasco-all-purpose-interior-cleaning-disinfectant-gel-1litre-30litre",
-                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_79a3ef74-c699-4dfd-82eb-2e30a3167943.png?v=1758033029&width=360",
-                category: "car"
-            },
-            {
-                id: 9,
-                name: "Nasco Antibacterial Foaming Hand Soap with Pump Dispenser",
-                quantity: "Highly Concentrated - 500ml Makes 5 litre of Hand Soap",
-                link: "https://nscohygiene.com/products/nasco-antibacterial-foaming-hand-soap-with-pump-dispenser-4",
-                image: "https://nscohygiene.com/cdn/shop/files/Apple-New.png?v=1752400904&width=360",
-                category: "disinfectant"
-            },
-            {
-                id: 10,
-                name: "Nasco Black Garbage Liner Bags for Dustbins – 5 Sizes",
-                quantity: "Heavy-Duty | 1 KG Pack",
-                link: "https://nscohygiene.com/products/nasco-black-garbage-liner-bags-for-dustbins-5-sizes-heavy-duty-1-kg-pack",
-                image: "https://nscohygiene.com/cdn/shop/files/Apple_3de1556a-cd39-48c1-9eea-1d46afb848e9.png?v=1752154286&width=360",
-                category: "specialty"
-            },
-            // Add more products here following the same pattern
-            // I'll add a few more to demonstrate
-            {
-                id: 51,
-                name: "Nasco Lustrex Stainless Steel Rust Cleaner and Shiner",
+                name: "Nasco CLR – Calcium, Limescale & Rust Remover",
                 quantity: "500Ml-5Litre",
-                link: "https://nscohygiene.com/products/nasco-lustrex-stainless-steel-rust-cleaner-and-shiner-500-ml",
-                image: "https://nscohygiene.com/cdn/shop/files/Mockups_a9360820-c640-4f1e-88d5-b530d18d6435.png?v=1755438434&width=360",
-                category: "cleaning"
+                link: "https://nscohygiene.com/products/nasco-clr-calcium-limescale-rust-remover-500ml-5litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockups_40d27f21-4642-4f42-b71c-0a5ef8004746.png?v=1764088862&width=533",
+                categories: ["sweets", "dairy", "pharma", "beverage", "food"]
             },
+
+            // --- Car Care ---
             {
-                id: 52,
-                name: "Nasco Marmitax Dish Washing Liquid Detergent for Pots and Pans",
-                quantity: "500Ml-10Litre",
-                link: "https://nscohygiene.com/products/nasco-marmitax-dish-washing-liquid-detergent-for-pots-and-pans-500-ml",
-                image: "https://nscohygiene.com/cdn/shop/files/Dish-Wash-New_4d2661e9-2a09-40be-a772-e79b3bd88e95.png?v=1755439361&width=360",
-                category: "cleaning"
-            },
-            {
-                id: 66,
-                name: "Nasco Sanifect Bathroom Cleaner",
-                quantity: "500Ml-10Litre",
-                link: "https://nscohygiene.com/products/nasco-sanifect-bathroom-cleaner-500-ml",
-                image: "https://nscohygiene.com/cdn/shop/files/Final.png?v=1755501420&width=360",
-                category: "disinfectant"
-            },
-            {
-                id: 68,
-                name: "Nasco Sanigel 80% Alcohol Hand Sanitiser",
-                quantity: "500Ml-10Litre",
-                link: "https://nscohygiene.com/products/nasco-sanigel-80-alcohol-hand-sanitiser-500-ml",
-                image: "https://nscohygiene.com/cdn/shop/files/Mockups_39a794d2-6dff-43d7-84e1-406c99db01d0.png?v=1755502593&width=360",
-                category: "disinfectant"
-            },
-            {
-                id: 80,
                 name: "Nasco Windeze Glass & Multi-Surface Cleaner",
                 quantity: "500Ml-10Litre",
                 link: "https://nscohygiene.com/products/windeze-glass-multi-surface-cleaner-highly-concentrated-liquid",
                 image: "https://nscohygiene.com/cdn/shop/files/New-Mockup_0a36c11d-e41f-4f39-a187-6389cc6bd7fc.png?v=1755504822&width=360",
-                category: "cleaning"
+                categories: ["car", "meat", "rice", "seafood", "hospital", "hotel", "commercial", "biosecurity"]
             },
             {
-                id: 81,
+                name: "Nasco Car Wash Shampoo Graphene Coated",
+                quantity: "1Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-car-wash-shampoo-graphene-coated-1litre-30litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_621ae813-0ec3-4050-ad20-9ae20a32acd7.png?v=1758017636&width=533",
+                categories: ["car"]
+            },
+            {
+                name: "Nasco AERO-GEL – Gel Air Freshener",
+                quantity: "1 Litre",
+                link: "https://nscohygiene.com/products/nasco-aero-gel-gel-air-freshener-1-litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_49b0da57-f4cd-4890-8a2b-9fffc7f5634f.png?v=1758038515&width=360",
+                categories: ["car"]
+            },
+            {
+                name: "Nasco All Purpose Car Cleaner & Disinfectant Spray",
+                quantity: "1Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-all-purpose-car-cleaner-disinfectant-spray-1litre-30litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_da6e2c0e-a772-42f8-a7fe-4cc466de7dc9.png?v=1758027743&width=360",
+                categories: ["car"]
+            },
+            {
+                name: "Nasco All Purpose Car Cleaner Spray",
+                quantity: "1Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-all-purpose-car-cleaner-spray-1litre-30litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_6fef688f-d085-4666-a176-e6d225511d2f.png?v=1758026198&width=360",
+                categories: ["car"]
+            },
+            {
+                name: "Nasco All Purpose Interior Cleaning & Disinfectant Gel",
+                quantity: "1Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-all-purpose-interior-cleaning-disinfectant-gel-1litre-30litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_79a3ef74-c699-4dfd-82eb-2e30a3167943.png?v=1758033029&width=360",
+                categories: ["car"]
+            },
+            {
+                name: "Nasco CARPEX – Car Carpet Cleaning Shampoo",
+                quantity: "1Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-carpex-car-carpet-cleaning-shampoo-1litre-30litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_9f617283-99cf-4d4c-bc39-ed1ebd858f59.png?v=1758042896&width=533",
+                categories: ["car"]
+            },
+            {
+                name: "Nasco DASHX – Dashboard Cleaner & Polish",
+                quantity: "1Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-dashx-dashboard-cleaner-polish-1litre-30litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_dc5b1023-3d78-47e1-af11-287507ffc891.png?v=1758036242&width=533",
+                categories: ["car"]
+            },
+            {
+                name: "Nasco DEGRON – Car Engine Degreaser",
+                quantity: "1Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-degron-car-engine-degreaser-1litre-30litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_24c441fc-c11a-4a4b-9780-a135a35f0849.png?v=1758045581&width=533",
+                categories: ["car"]
+            },
+            {
+                name: "Nasco LEATHIQUE – Leather Cleaner & Conditioner",
+                quantity: "1Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-leathique-leather-cleaner-conditioner-1litre-30litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_62b0a78f-018b-4880-878f-3b35ace75138.png?v=1758044223&width=533",
+                categories: ["car"]
+            },
+            {
+                name: "Nasco TIREX – Car Wheel Cleaner",
+                quantity: "1Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-tirex-car-wheel-cleaner-1litre-30litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_bc43caf7-29a5-4dfb-89fb-6e972b3c555b.png?v=1758034894&width=533",
+                categories: ["car"]
+            },
+            {
+                name: "Nasco Thermo-Guard – Anti-Rust & Anti-Freeze Radiator Coolant",
+                quantity: "1Litre-30Litre",
+                link: "https://nscohygiene.com/products/nasco-thermo-guard-anti-rust-anti-freeze-radiator-coolant-1litre-30litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_1ab14a01-e9a0-410d-8489-896e5e2f4bae.png?v=1758041396&width=533",
+                categories: ["car"]
+            },
+
+            // --- General/Common List (Meat, Rice, Seafood, Hotel, Commercial, Biosecurity) ---
+            {
+                name: "Nasco Lustrex Stainless Steel Rust Cleaner and Shiner",
+                quantity: "500Ml-5Litre",
+                link: "https://nscohygiene.com/products/nasco-lustrex-stainless-steel-rust-cleaner-and-shiner-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockups_a9360820-c640-4f1e-88d5-b530d18d6435.png?v=1755438434&width=360",
+                categories: ["meat", "rice", "seafood", "hospital", "hotel", "commercial", "biosecurity"]
+            },
+            {
+                name: "Nasco LUCID (Bathrooms and Kitchen) Tile & Grout Cleaner",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/collections/all",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockups_aefc4975-1413-4c1c-ab2d-f4944fbbab9f.png?v=1755502843&width=533",
+                categories: ["meat", "rice", "seafood", "hotel", "commercial", "biosecurity"]
+            },
+            {
+                name: "Nasco Marmitax Dish Washing Liquid Detergent for Pots and Pans",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-marmitax-dish-washing-liquid-detergent-for-pots-and-pans-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Dish-Wash-New_4d2661e9-2a09-40be-a772-e79b3bd88e95.png?v=1755439361&width=360",
+                categories: ["meat", "rice", "seafood", "hotel", "commercial", "biosecurity"]
+            },
+            {
+                name: "Nasco Sanifect Bathroom Cleaner",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-sanifect-bathroom-cleaner-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Final.png?v=1755501420&width=360",
+                categories: ["meat", "rice", "seafood", "hospital", "hotel", "commercial", "biosecurity"]
+            },
+            {
+                name: "Nasco Grill Clean Alkaline Oven and Grill Cleaner",
+                quantity: "500Ml-5Litre",
+                link: "https://nscohygiene.com/products/nasco-grill-clean-alkaline-oven-and-grill-cleaner-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockups_dd4f7da1-013c-4f81-910c-fb7fc4ca0571.png?v=1755503301&width=533",
+                categories: ["meat", "rice", "seafood", "hotel", "commercial", "biosecurity"]
+            },
+            {
+                name: "Nasco Multi-Phen Concentrated Phenyl",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-multi-phen-concentrated-phenyl-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Multi-Phen_942e3998-edf9-4da9-b66c-dadcd3d3a987.png?v=1755504318&width=533",
+                categories: ["meat", "rice", "seafood", "hospital", "hotel", "commercial", "biosecurity"]
+            },
+            {
+                name: "Nasco Drain-X Heavy Duty Alkaline Drain Opener / Cleaner",
+                quantity: "1Litre-10Litre",
+                link: "https://nscohygiene.com/products/nasco-drain-x-heavy-duty-alkaline-drain-opener-cleaner-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/New-Mockup_0bf3ad9b-6b98-4488-ae14-ab19126be9bf.png?v=1762076083&width=533",
+                categories: ["meat", "rice", "seafood", "hospital", "hotel", "commercial", "biosecurity"]
+            },
+            {
+                name: "Nasco Fabri-Clean Upholstery and Leather Cleaner",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-fabri-clean-upholstery-and-leather-cleaner-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Fabri-Clean-new_73761dc1-0649-4a4f-a1a2-ff2769c1e035.png?v=1755439792&width=533",
+                categories: ["meat", "rice", "seafood", "hotel", "commercial", "biosecurity"]
+            },
+            {
+                name: "Nasco Liquid Laundry Anti-Fungal and Anti-Bacterial",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-liquid-laundry-anti-fungal-and-anti-bacterial-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Liquid-Laundary_8bb52225-c643-4bbc-b978-3bd2a948e66d.png?v=1755502138&width=533",
+                categories: ["meat", "rice", "seafood", "hospital", "hotel", "commercial", "biosecurity"]
+            },
+            {
                 name: "Nasco Wood Glow Premium Wood Polish Spray",
                 quantity: "500Ml-5Litre",
                 link: "https://nscohygiene.com/products/nasco-wood-glow-premium-wood-polish-spray-500-ml",
                 image: "https://nscohygiene.com/cdn/shop/files/Mockups_e4080b5d-ee56-4c63-b753-30d790e451bf.png?v=1755503784&width=360",
-                category: "specialty"
+                categories: ["meat", "rice", "seafood", "hotel", "commercial", "biosecurity"]
+            },
+            {
+                name: "Nasco FRIGO Fridge, Freezer & Ice Cleaner",
+                quantity: "500Ml-5Litre",
+                link: "https://nscohygiene.com/products/nasco-frigo-fridge-freezer-ice-cleaner-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockups_9b19eee7-a379-4a28-b6c5-74f1551a5a68.png?v=1755502387&width=533",
+                categories: ["meat", "rice", "seafood", "hotel", "commercial", "biosecurity"]
+            },
+
+            // --- Hospital Specific (that aren't in General) ---
+            {
+                name: "Nasco Instru-Milk Instrument Lubricant & Corrosion Protector",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-instru-milk-instrument-lubricant-corrosion-protector-500ml-10litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-500Ml_e9155969-cd86-41c3-bef0-947e0c5f85db.png?v=1756918300&width=533",
+                categories: ["hospital"]
+            },
+            {
+                name: "Nasco CHLOR-S Cleaner & Disinfectant for Blood Spills",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-chlor-s-cleaner-disinfectant-for-blood-spills-and-operation-rooms-500ml-10litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-500Ml_b92b5c51-f0d3-44ca-97ec-d700bc14ae5d.png?v=1756922209&width=533",
+                categories: ["hospital"]
+            },
+            {
+                name: "Nasco Neutra-Soak Pre-Soaking Solution",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-neutra-soak-pre-soaking-solution-for-medical-instruments-500ml-10litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-500Ml_9b498cfe-f50a-483a-8c6b-1fca0a908cc0.png?v=1756901661&width=533",
+                categories: ["hospital"]
+            },
+            {
+                name: "Nasco Sanigel 80% Alcohol Hand Sanitiser",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-sanigel-80-alcohol-hand-sanitiser-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockups_39a794d2-6dff-43d7-84e1-406c99db01d0.png?v=1755502593&width=360",
+                categories: ["hospital"]
+            },
+            {
+                name: "Nasco PRO-SCRUB Surgical Scrub Soap",
+                quantity: "500Ml-10Litre",
+                link: "https://nscohygiene.com/products/nasco-pro-scrub-surgical-scrub-soap-antimicrobial-hand-skin-cleanser-500ml-5litre",
+                image: "https://nscohygiene.com/cdn/shop/files/Mockup-500Ml_1a60744f-bb9e-45bb-8a9f-aa6a5c6504fa.png?v=1756831346&width=533",
+                categories: ["hospital"]
+            },
+            {
+                name: "Nasco General Clean 'F' Floor Cleaner",
+                quantity: "Highly Concentrated - 500Ml-5Litre",
+                link: "https://nscohygiene.com/products/nasco-general-clean-f-floor-cleaner-highly-concentrated-500-ml",
+                image: "https://nscohygiene.com/cdn/shop/files/Floor-Cleaner_555c94b3-dce2-4f84-9a43-94470b97f707.png?v=1755501813&width=533",
+                categories: ["hospital"]
             }
         ];
 
@@ -848,13 +1089,20 @@
         const categoryBtns = document.querySelectorAll('.category-btn');
         const productsContainer = document.getElementById('products-container');
         
-        function displayProducts(category = 'all') {
+        function displayProducts(category = 'food') {
             productsContainer.innerHTML = '';
             
-            const filteredProducts = category === 'all' 
-                ? products 
-                : products.filter(product => product.category === category);
+            // Filter products that include the selected category in their categories array
+            const filteredProducts = products.filter(product => {
+                if(category === 'all') return true;
+                return product.categories.includes(category);
+            });
             
+            if (filteredProducts.length === 0) {
+                productsContainer.innerHTML = '<p style="text-align:center; width:100%; grid-column: 1/-1;">No products found in this category.</p>';
+                return;
+            }
+
             filteredProducts.forEach(product => {
                 const productCard = document.createElement('div');
                 productCard.className = 'product-card';
@@ -875,8 +1123,8 @@
             });
         }
         
-        // Initialize with all products
-        displayProducts();
+        // Initialize with 'Food' products as per user request to show specific ones first
+        displayProducts('food');
         
         // Add event listeners to category buttons
         categoryBtns.forEach(btn => {
